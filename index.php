@@ -1,3 +1,3 @@
 <?php
 include ('scripts/functions.php');
-phpinfo();
+fun2("Test string");
