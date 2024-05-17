@@ -1,4 +1,17 @@
 <?php
+require_once __DIR__.'/vendor/autoload.php';
+
+//hw4
+use Overload\User;
+try {
+    $user = new User('Test name',30,'testmail@gmail.com');
+    $user->getAll();
+    $user->setName('New name');
+}catch (Throwable $e) {
+    echo $e->errorMessage();
+}
+
+/*//hw3
 require_once 'Color.php';
 require_once 'helpers.php';
 
@@ -15,4 +28,4 @@ show($color->equals($colorSame)); //true
 $randonRgb = Color::random();
 show($randonRgb->getRed());
 show($randonRgb->getGreen());
-show($randonRgb->getBlue());
+show($randonRgb->getBlue());*/
