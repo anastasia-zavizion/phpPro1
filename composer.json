@@ -2,10 +2,16 @@
     "name": "nasty/php-pro1",
     "autoload": {
         "psr-4": {
-            "Overload\\": "Classes/",
+            "App\\": "App/",
+            "Controllers\\": "Controllers/",
+            "Core\\": "Core/",
             "Interfaces\\": "Interfaces/",
             "CustomExceptions\\": "CustomExceptions/"
-        }
+        },
+        "files": [
+            "core/helpers.php",
+            "routes/api.php"
+        ]
     },
     "authors": [
         {
@@ -14,6 +20,7 @@
         }
     ],
     "require": {
-        "larapack/dd": "1.*"
+        "larapack/dd": "1.*",
+        "monolog/monolog": "^3.6"
     }
 }

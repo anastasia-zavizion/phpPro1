@@ -1,0 +1,7 @@
+[2024-06-05T21:06:13.588995+00:00] after.INFO: Controller:App\Controllers\V1\LeadsController, Action:index, Params: [] []
+[2024-06-05T21:06:17.884881+00:00] after.INFO: Controller:App\Controllers\V1\LeadsController, Action:show, Params:1 [] []
+[2024-06-05T21:06:21.846533+00:00] after.INFO: Controller:App\Controllers\V1\LeadsController, Action:show, Params:5 [] []
+[2024-06-05T21:09:11.854466+00:00] after.INFO: Controller:App\Controllers\V1\LeadsController, Action:show, Params:5 [] []
+[2024-06-05T21:09:16.178093+00:00] after.INFO: Controller:App\Controllers\V1\LeadsController, Action:show, Params:3 [] []
+[2024-06-05T21:19:36.165658+00:00] after.INFO: Controller:App\Controllers\V1\LeadsController, Action:index, Params: [] []
+[2024-06-05T21:22:03.640396+00:00] after.INFO: Controller:App\Controllers\V1\LeadsController, Action:index, Params: [] []
