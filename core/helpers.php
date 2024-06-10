@@ -1,6 +1,11 @@
 <?php
-namespace Core;
 use App\Enums\Http\Status;
+use Core\DB;
+use Dotenv\Dotenv;
+
+function db(): PDO{
+    return DB::connect();
+}
 
 function jsonResponse(int $code = 200, array $data = []): string
 {
@@ -25,4 +30,9 @@ function jsonResponse(int $code = 200, array $data = []): string
         'status' => $statuses[$code],
         ...$data
     ]);
+}
+
+function loadEnv(){
+    $dotenv = Dotenv::createUnsafeImmutable(BASE_DIR);
+    $dotenv->safeLoad();
 }

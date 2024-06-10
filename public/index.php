@@ -4,8 +4,8 @@ require_once BASE_DIR.'/vendor/autoload.php';
 use Core\Router;
 
 try {
+    loadEnv();
     die(Router::dispatch($_SERVER['REQUEST_URI']));
 } catch (Exception $exception) {
     dd($exception);
 }
-
