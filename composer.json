@@ -5,6 +5,7 @@
             "App\\": "App/",
             "Commands\\": "commands/",
             "Controllers\\": "Controllers/",
+            "Models\\": "Models/",
             "Core\\": "Core/",
             "Interfaces\\": "Interfaces/",
             "CustomExceptions\\": "CustomExceptions/"

@@ -15,7 +15,7 @@ services:
     volumes:
       - .:/var/www/html
     networks:
-      - php_pro
+      - ${PROJECT_NETWORK}
 
   # Define the database service
   database:
@@ -25,10 +25,10 @@ services:
     volumes:
       - "./databases:/var/lib/mysql"
     environment:
-      MYSQL_DATABASE: php_pro
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
     networks:
-      - php_pro
+      - ${PROJECT_NETWORK}
 
   adminer:
       image: adminer
@@ -36,4 +36,4 @@ services:
       ports:
         - "8084:8080"
       networks:
-        - php_pro
+        - ${PROJECT_NETWORK}
