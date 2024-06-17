@@ -4,10 +4,11 @@ use Core\Traits\Db\Queryable;
 use Core\Traits\Db\ConstraintQuery;
 use Core\Traits\Db\WhereQuery;
 use Core\Traits\Db\OrderQuery;
+use Core\Traits\Db\DataManipulateQuery;
 
 abstract class Model
 {
-    use Queryable, ConstraintQuery, WhereQuery, OrderQuery;
+    use Queryable, ConstraintQuery, WhereQuery, OrderQuery, DataManipulateQuery;
 
     public int $id;
 

@@ -16,6 +16,7 @@ function jsonResponse(int $code = 200, array $data = []): string
 
     $statuses = [
         200 => '200 OK',
+        201 => '201 Created',
         400 => '400 Bad Request',
         403 => '403 Forbidden',
         422 => '422 Unprocessable Entity',
@@ -35,4 +36,13 @@ function jsonResponse(int $code = 200, array $data = []): string
 function loadEnv(){
     $dotenv = Dotenv::createUnsafeImmutable(BASE_DIR);
     $dotenv->safeLoad();
+}
+
+function requestBody() : array{
+    $data = [];
+    $requestBody = file_get_contents("php://input");
+    if(!empty($requestBody)){
+        $data = json_decode($requestBody, true); //convert json to array
+    }
+    return $data;
 }

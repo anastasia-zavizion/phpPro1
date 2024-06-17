@@ -2,6 +2,7 @@
 namespace App\Models;
 
 use Core\Model;
+use ReallySimpleJWT\Token;
 
 class User extends Model
 {
@@ -15,5 +16,7 @@ class User extends Model
 
     static protected string|null $tableName = 'users';
 
-
+    public function generateToken($expiration):string{
+        return Token::create($this->id, $this->password, $expiration, 'localhost');
+    }
 }
