@@ -31,7 +31,7 @@ class AuthController extends Controller{
                return $this->response(Status::OK->value, compact('token'));
            }
        }
-       return $this->response(Status::UNPROCESSABLE_ENTITY->value,errors:RegisterValidator::getErrors());
+       return $this->response(Status::UNPROCESSABLE_ENTITY->value,errors:AuthValidator::getErrors());
     }
 
 }

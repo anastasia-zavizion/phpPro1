@@ -32,4 +32,22 @@ abstract class BaseValidation
         static::$errors[$key] = $message;
     }
 
+    public function phone(){
+       return '/^\+?\d{5,}$/';
+    }
+    public function simpleString(int $min = 2){
+       return '/[a-zA-Z0-9-]{'.$min.',}/';
+    }
+
+     public function email(){
+       return '/^[a-zA-Z0-9.!#$%&\'*+\/\?^_`{|}~-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i';
+    }
+
+     public function password(int $min = 8){
+       return '/[a-zA-Z0-9.!#$%&\'*+\/\?^_`{|}~-]{'.$min.',}/';
+    }
+     public function username(int $min = 3){
+       return '/[a-zA-Z0-9.!#$%&\'*+\/\?^_`{|}~-]{'.$min.',}/';
+    }
+
 }

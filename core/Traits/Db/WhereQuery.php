@@ -1,5 +1,6 @@
 <?php
 namespace Core\Traits\Db;
+use  App\Enums\Db\Operator;
 
 trait  WhereQuery
 {
@@ -27,14 +28,18 @@ trait  WhereQuery
             $whereStr .=" WHERE";
         }
         $whereStr .=" $column $operator->value $value";
+
         if(in_array('sum', $this->commands)){
             $groupByPos = stripos(static::$query, 'GROUP BY');
             if ($groupByPos !== false) {
                 $query = substr_replace(static::$query, $whereStr . ' ', $groupByPos, 0);
                 static::$query = $query;
             }
+        }else{
+            static::$query .= $whereStr;
         }
-        $this->commands[] = 'where';
+
+        $obj->commands[] = 'where';
         return $obj;
     }
 

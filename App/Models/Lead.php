@@ -7,6 +7,7 @@ class Lead extends Model
 {
     public int $id;
     public int|null $lead_id;
+    public int|null $user_id;
     public string|null $email;
     public string|null $name;
     public string|null $city;

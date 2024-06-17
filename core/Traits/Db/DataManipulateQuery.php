@@ -25,4 +25,31 @@ trait DataManipulateQuery{
         return db()->lastInsertId();
     }
 
+
+    public function update(array $fields): static
+    {
+        $query = "UPDATE " . static::$tableName . " SET " . $this->updatePlaceholders(array_keys($fields)) . " WHERE id = :id";
+        $query = db()->prepare($query);
+        $fields['id'] = $this->id;
+        $query->execute($fields);
+        return static::find($this->id);
+    }
+
+    protected function updatePlaceholders(array $keys): string
+    {
+        $string = '';
+        $lastKey = array_key_last($keys);
+        foreach ($keys as $index => $key) {
+            $string .= "$key = :$key" . ($index !== $lastKey ? ', ' : '');
+        }
+        return $string;
+    }
+
+    static public function destroy(int $id): bool
+    {
+        $query = db()->prepare("DELETE FROM " . static::$tableName . " WHERE id = :id");
+        $query->bindParam('id', $id);
+        return $query->execute();
+    }
+
 }

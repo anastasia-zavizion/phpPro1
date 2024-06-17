@@ -1,9 +1,9 @@
 <?php
 namespace Core\Traits\Db;
 use PDO;
-use  App\Enums\Db\Operator;
 use  App\Enums\Db\Order;
 use splitbrain\phpcli\Exception;
+use  App\Enums\Db\Operator;
 
 trait Queryable{
 
@@ -31,7 +31,7 @@ trait Queryable{
 
     static public function find(int $id):static|false{
         static::resetQuery();
-        $query = db()->prepare('SELECT * FROM '.static::$tableName.' WHERE id=:id'); //todo for id
+        $query = db()->prepare('SELECT * FROM '.static::$tableName.' WHERE id=:id');
         $query->bindParam('id',$id);
         $query->execute();
         return $query->fetchObject(static::class);
