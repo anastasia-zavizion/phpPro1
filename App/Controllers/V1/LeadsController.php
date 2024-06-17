@@ -2,35 +2,23 @@
 namespace App\Controllers\V1;
 use App\Enums\Http\Status;
 use App\Controllers\Controller;
+use App\Models\Lead;
+use App\Models\Task;
+use  App\Enums\Db\Operator;
+use  App\Enums\Db\Order;
 
 class LeadsController extends Controller{
 
-    public array $leads = [
-        1=>[
-            'name'=>'Lead1',
-            'phone'=>'1111',
-        ],
-        2=>[
-            'name'=>'Lead2',
-            'phone'=>'2222',
-        ],
-        3=>[
-            'name'=>'Lead3',
-            'phone'=>'3333',
-        ],
-    ];
-
     public function index(){
-        return $this->response(Status::OK->value, ['method'=>'index', 'data'=>['leads'=>$this->leads]]);
+        dd(Lead::select()->where('id',Operator::IN, [1,2,'3'])->get());
+        return $this->response(Status::OK->value, ['method'=>'index', 'data'=>['leads'=>Lead::getAll()]]);
     }
 
     public function show(int $id){
-        $lead = $this->leads[$id] ?? [];
-        if($lead){
-            return $this->response(Status::OK->value, ['method'=>'show', 'data'=>['lead'=>$lead]]);
-        }else{
-            return $this->response(Status::NOT_FOUND->value, ['method'=>'show', 'data'=>['lead'=>[]]]);
-        }
+     /*   dd(Lead::select(['name'])->get());
+     dd(Lead::findOrFail('id',1));*/
+
+        return $this->response(Status::OK->value, ['method'=>'show', Lead::find($id)->toArray()]);
     }
 
     public function store(){
