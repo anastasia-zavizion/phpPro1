@@ -2,6 +2,10 @@
 use Core\Router;
 use App\Controllers\V1\LeadsController;
 use App\Controllers\V1\TasksController;
+use App\Controllers\AuthController;
+
+Router::post('api/auth/register')->controller(AuthController::class)->action('register');
+Router::post('api/auth/login')->controller(AuthController::class)->action('login');
 
 Router::get('api/v1/leads')->controller(LeadsController::class)->action('index');
 Router::get('api/v1/leads/{id:\d+}')->controller(LeadsController::class)->action('show');

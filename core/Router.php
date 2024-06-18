@@ -3,6 +3,7 @@ namespace Core;
 use Core\Traits\HttpMethods;
 use App\Enums\Http\Method;
 use App\Controllers\Controller;
+use App\Enums\Http\Status;
 
 class Router{
     use HttpMethods;
