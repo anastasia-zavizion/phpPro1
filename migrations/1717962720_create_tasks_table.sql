@@ -3,5 +3,7 @@ id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 title VARCHAR(100) NOT NULL,
 content VARCHAR(100) NOT NULL,
 status_id INT UNSIGNED,
-FOREIGN KEY (status_id) REFERENCES tasks_statuses(id)
+user_id INT UNSIGNED,
+FOREIGN KEY (status_id) REFERENCES tasks_statuses(id),
+FOREIGN KEY (user_id) REFERENCES users(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

@@ -6,6 +6,7 @@ class Task extends Model
 {
     public int $id;
     public int|null $task_id;
+    public int|null $user_id;
     public int|null $lead_id;
     public string|null $title;
     public string|null $name;

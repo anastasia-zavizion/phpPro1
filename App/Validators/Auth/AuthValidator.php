@@ -10,6 +10,8 @@ class AuthValidator extends Base
         'password' => self::DEFAULT_MESSAGE
     ];
 
+    static protected array $skip  = ['username'];
+
     public static function validate(array $fields = []): bool
     {
         $isValid = parent::validate($fields);
